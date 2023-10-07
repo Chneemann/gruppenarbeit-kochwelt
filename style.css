@@ -102,6 +102,27 @@ h2 {
   border-radius: 10px;
 }
 
+/* Section Recipe Idea */
+
+.section-recipe-idea-content {
+  display: flex;
+  padding: 0 80px 60px 80px;
+}
+
+.section-recipe-idea p {
+  margin-right: 40px;
+}
+
+.section-recipe-idea img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.section-recipe-idea h2 {
+  text-align: center;
+  padding: 60px;
+}
+
 /* Footer */
 
 footer {
