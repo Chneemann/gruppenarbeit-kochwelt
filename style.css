@@ -129,6 +129,37 @@ h2 {
   padding: 60px;
 }
 
+/* Recipepage */
+
+.recipepage {
+  padding: 60px 80px;
+}
+
+.recipepage img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipepage-attributes {
+  display: flex;
+  padding-top: 16px;
+}
+
+.recipepage-attributes img {
+  height: 15px;
+  width: auto;
+  padding-right: 6px;
+}
+
+.recipepage-attributes p {
+  border: solid 0 var(--black);
+  background-color: var(--light-gray);
+  border-radius: 12px;
+  padding: 6px;
+  margin-right: 24px;
+}
+
 /* Footer */
 
 footer {
