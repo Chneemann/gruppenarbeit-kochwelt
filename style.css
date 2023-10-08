@@ -55,14 +55,14 @@ h2 {
 }
 
 .section-content {
-  margin: 0 80px;
+  margin: 60px 80px;
 }
 
 /* Landingpage */
 
 .landingpage {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 60px 80px;
 }
 
@@ -100,12 +100,17 @@ h2 {
   display: flex;
   justify-content: space-between;
   background-color: var(--light-gray);
-  padding: 60px 80px;
+  padding: 60px 60px;
   text-align: center;
 }
+
 .section-recipe img {
-  width: 200px;
+  width: 100%;
   border-radius: 10px;
+}
+
+.section-recipe-details {
+  padding: 0 20px;
 }
 
 /* Section Recipe Idea */
@@ -162,7 +167,7 @@ h2 {
 
 /* Kontakt */
 
-.contakt-formular {
+.contact-formular {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -192,4 +197,85 @@ footer a:hover {
 footer img {
   width: 70px;
   color: var(--white);
+}
+
+.burgericon {
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+.burgericon div {
+  width: 90%;
+  margin: 7px 5%;
+  height: 3px;
+  background-color: var(--black);
+}
+.burgericon:hover {
+  filter: drop-shadow(0px 0px 12px var(--green));
+}
+
+/* Media */
+@media (max-width: 850px) {
+  nav a {
+    display: none;
+  }
+  .burgericon {
+    display: block;
+  }
+}
+
+/* Burgermenu */
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.3s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: var(--gray);
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: var(--green);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 450px) {
+  .overlay a {
+    font-size: 18px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }

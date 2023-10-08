@@ -16,19 +16,22 @@
 
     <section class="section-content">
       <h1>Kontakt</h1>
-      <div class="contakt-formular">
-        <form onsubmit="sendMail(event)">
-          <label>
-            Your email:
-            <input type="email" name="email" />
-          </label>
-
-          <label>
-            Your message:
-            <textarea name="message"></textarea>
-          </label>
-          <button type="submit">Send</button>
-        </form>
+      <div class="contact-formular">
+        <div>
+          <form onsubmit="sendMail(event)">
+            <label>
+              Your email:
+              <input type="email" name="email" />
+            </label>
+        </div>
+        <div>
+            <label>
+              Your message:
+              <textarea name="message"></textarea>
+            </label>
+            <div><button class="button" type="submit">Send</button></div>
+          </form>
+        </div>
       </div>
     </section>
 
