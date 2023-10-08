@@ -160,6 +160,14 @@ h2 {
   margin-right: 24px;
 }
 
+/* Kontakt */
+
+.contakt-formular {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
 /* Footer */
 
 footer {
