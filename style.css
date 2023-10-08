@@ -27,6 +27,7 @@ header {
 
 header img {
   width: 220px;
+  margin-bottom: 10px;
 }
 
 nav a {
@@ -117,6 +118,7 @@ h2 {
 
 .section-recipe-idea-content {
   display: flex;
+  justify-content: space-between;
   padding: 0 80px 60px 80px;
 }
 
@@ -179,7 +181,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 120px;
+  height: 140px;
   padding: 0 80px;
   background-color: var(--gray-footer);
   color: var(--white);
@@ -216,12 +218,62 @@ footer img {
 }
 
 /* Media */
+
+@media (max-width: 500px) {
+  header img {
+    width: 160px;
+  }
+  header {
+    padding: 0 20px 8px 20px;
+  }
+  .section-content {
+    margin: 60px 20px;
+  }
+  footer {
+    height: 250px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer-links {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer-links span {
+    display: none;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-links a {
+    padding: 0;
+  }
+
+  .landingpage,
+  .section-recipe,
+  .section-recipe-idea-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 @media (max-width: 850px) {
-  nav a {
+  .header-links a {
     display: none;
   }
   .burgericon {
     display: block;
+  }
+
+  header img {
+    margin-top: 20px;
+  }
+
+  header {
+    align-items: center;
   }
 }
 
