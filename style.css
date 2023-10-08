@@ -51,7 +51,6 @@ h1 {
 
 h2 {
   font-size: 26px;
-  margin-top: 0;
   font-weight: 400;
 }
 
@@ -69,14 +68,19 @@ h2 {
 
 .landingpage-content {
   margin-left: 40px;
+  width: 50%;
 }
 
 .landingpage-content p {
   height: 170px;
 }
 
+.landingpage-img {
+  width: 50%;
+}
+
 .landingpage img {
-  width: 400px;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -101,7 +105,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   background-color: var(--light-gray);
-  padding: 60px 60px;
+  padding: 60px 80px;
   text-align: center;
 }
 
@@ -119,21 +123,27 @@ h2 {
 .section-recipe-idea-content {
   display: flex;
   justify-content: space-between;
-  padding: 0 80px 60px 80px;
+  padding: 60px 80px;
 }
 
 .section-recipe-idea p {
   margin-right: 40px;
+  width: 50%;
 }
 
 .section-recipe-idea img {
-  width: 300px;
+  width: 100%;
   border-radius: 10px;
 }
 
 .section-recipe-idea h2 {
   text-align: center;
-  padding: 60px;
+  padding-top: 40px;
+  margin-bottom: 0;
+}
+
+.section-recipe-idea-img {
+  width: 50%;
 }
 
 /* Recipepage */
@@ -290,7 +300,13 @@ footer a:hover {
     width: 160px;
   }
   header {
-    padding: 0 20px 8px 20px;
+    padding: 0 20px;
+  }
+
+  .landingpage,
+  .section-recipe,
+  .section-recipe-idea-content {
+    padding: 40px 20px;
   }
   .section-content {
     margin: 60px 20px;
@@ -305,7 +321,6 @@ footer a:hover {
     flex-direction: column;
     text-align: center;
     margin-top: 20px;
-    text-align: center;
   }
   .footer-links span {
     display: none;
@@ -321,6 +336,14 @@ footer a:hover {
   .section-recipe-idea-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .landingpage-content,
+  .landingpage-img,
+  .section-recipe-idea p,
+  .section-recipe-idea-img {
+    width: 100%;
+    margin: 20px 0;
   }
 }
 
@@ -383,15 +406,4 @@ footer a:hover {
   top: 20px;
   right: 45px;
   font-size: 60px;
-}
-
-@media screen and (max-width: 450px) {
-  .overlay a {
-    font-size: 18px;
-  }
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
 }
