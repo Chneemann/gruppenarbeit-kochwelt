@@ -66,7 +66,7 @@ function closeNav() {
 /*  ------------------ RECIPEPAGE LOAD INGREDIENTS  ------------------ */
 
 function loadRecipe() {
-  let recipeAmount = [1, 6, 1, 70, 3, 1, 1, 2, 5, 1, 2, 2];
+  let recipeAmount = [1, 6, 1, 1, 3, 1, 1, 2, 5, 1, 2, 2];
   let recipeIngredients = [
     "Kopfsalat(e)",
     "kleine Tomaten(n)",
@@ -83,42 +83,64 @@ function loadRecipe() {
   ];
 
   let amount = document.getElementById("recipepage-amount").value;
-  document.getElementById("recipepage-load-ingredients").innerHTML = "";
 
-  for (let count = 0; count < recipeAmount.length; count++) {
-    let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-    let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+  if (amount >= 1 && amount <= 12) {
+    document.getElementById("recipepage-load-ingredients").innerHTML = "";
 
-    document.getElementById("recipepage-load-ingredients").innerHTML += `
+    for (let count = 0; count < recipeAmount.length; count++) {
+      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+
+      document.getElementById("recipepage-load-ingredients").innerHTML += `
       <tr>
         <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
       </tr>`;
+    }
+  } else {
+    const element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--red)";
+    element.style.borderColor = "var(--red)";
   }
 
-  // Umrechnung auf den Bruch
-  // ½ = &#xBD;
-  // ¼ = &#xbc;
-  // ¾ = &#xbe;
-
+  //------------- Umrechnung auf den Bruch und diesen Anzeigen lassen -------------
   function divideDecimal(decimal) {
+    // Schritt 1: Ermitteln der ganzen Zahlkomponente
     const wholeNumber = Math.floor(decimal);
+
+    // Schritt 2: Ermitteln der Nachkommastellenkomponente
     const fractionalPart = decimal - wholeNumber;
+
+    // Schritt 3: Initialisieren der Fraktionszeichenkette
     let fraction = "";
+
+    // Schritt 4: Überprüfen, ob die Dezimalzahl Nachkommastellen hat
     if (decimal % 1 !== 0) {
+      // Schritt 5: Bestimmen der Fraktionskomponente basierend auf fractionalPart
       if (fractionalPart <= 0.25) {
-        fraction = "&#xbc;";
+        fraction = "&#xbc;"; // "&#xbc;" entspricht dem Bruch "¼"
       } else if (fractionalPart <= 0.5) {
-        fraction = "&#xBD;";
+        fraction = "&#xBD;"; // "&#xBD;" entspricht dem Bruch "½"
       } else if (fractionalPart <= 0.75) {
-        fraction = "&#xbe;";
+        fraction = "&#xbe;"; // "&#xbe;" entspricht dem Bruch "¾"
       }
     }
 
+    // Schritt 6: Überprüfen, ob es keine ganze Zahl gibt
     if (wholeNumber === 0) {
+      // In diesem Fall wird nur die Fraktion zurückgegeben
       return fraction;
-    } else if (fraction) {
+    }
+
+    // Schritt 7: Überprüfen, ob es sowohl eine ganze Zahl als auch eine Fraktion gibt
+    else if (fraction) {
+      // In diesem Fall werden ganze Zahl und Fraktion kombiniert
+      // und als Zeichenkette zurückgegeben, getrennt durch ein Leerzeichen
       return `${wholeNumber} ${fraction}`;
-    } else {
+    }
+
+    // Schritt 8: Wenn weder ganze Zahl noch Fraktion vorhanden sind
+    else {
+      // Die ganze Zahl wird in eine Zeichenkette umgewandelt und zurückgegeben
       return wholeNumber.toString();
     }
   }

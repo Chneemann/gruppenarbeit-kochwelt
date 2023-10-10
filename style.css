@@ -3,6 +3,7 @@
   --black: #000;
   --gray: #808080;
   --green: #038001;
+  --red: #ff0000;
   --gray-footer: #403b3b;
   --light-gray: #efefef;
 }
@@ -228,15 +229,15 @@ h2 {
 
 #recipepage-amount {
   width: 100px;
-  height: 36px;
-  padding-left: 6px;
+  height: 35px;
+  padding-left: 8px;
   margin-left: 10px;
   border: 1px solid var(--light-gray);
   box-shadow: 0;
 }
 .recipepage .button {
   width: 100px;
-  padding: 10px 25px;
+  padding: 9.5px 25px 10px 25px;
   text-align: center;
   border-radius: 0;
   border: 1px solid var(--green);
