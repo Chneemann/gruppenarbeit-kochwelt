@@ -226,7 +226,7 @@ h2 {
   align-items: center;
 }
 
-#amount {
+#recipepage-amount {
   width: 100px;
   height: 36px;
   padding-left: 6px;
@@ -235,10 +235,12 @@ h2 {
   box-shadow: 0;
 }
 .recipepage .button {
-  width: 120px;
+  width: 100px;
   padding: 10px 25px;
+  text-align: center;
   border-radius: 0;
   border: 1px solid var(--green);
+  cursor: pointer;
 }
 .recipepage .button:hover {
   border: 1px solid var(--light-gray);

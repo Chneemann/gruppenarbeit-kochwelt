@@ -29,9 +29,10 @@
       <div class="spacer"></div>
 
       <form class="recipepage-numbers" action="">
-        <label for="amount">Zutaten für</label>
-        <input id="amount" type="number" min="1" max="8" value="4"/ required>
-        <input class="button" type="submit" value="Portionen" />
+        <label for="recipepage-amount">Zutaten für</label>
+        <input id="recipepage-amount" type="number" min="1" max="8" value="4"/
+        required>
+        <input class="button" onclick="loadRecipe()" value="Portionen" />
       </form>
 
       <div class="recipepage-ingredients">

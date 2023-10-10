@@ -82,10 +82,14 @@ function loadRecipe() {
     "EL	Wasser, kaltes",
   ];
 
+  let amount = document.getElementById("recipepage-amount").value;
+
+  document.getElementById("recipepage-load-ingredients").innerHTML = "";
+
   for (let count = 0; count < recipeAmount.length; count++) {
     document.getElementById("recipepage-load-ingredients").innerHTML += `
     <tr>
-    <td>${recipeAmount[count]} ${recipeIngredients[count]}</td>
+    <td>${(recipeAmount[count] / 4) * amount} ${recipeIngredients[count]}</td>
     </tr>`;
   }
 }
