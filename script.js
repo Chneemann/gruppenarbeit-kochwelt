@@ -30,6 +30,8 @@ function includeHTML() {
   }
 }
 
+/*  ------------------ SEND MAIL ------------------ */
+
 function sendMail(event) {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -49,6 +51,8 @@ function sendMail(event) {
     });
 }
 
+/*  ------------------ RESPONSIVE MENU ------------------ */
+
 /* Open when someone clicks on the span element */
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
@@ -57,4 +61,31 @@ function openNav() {
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
+}
+
+/*  ------------------ RECIPEPAGE LOAD INGREDIENTS  ------------------ */
+
+function loadRecipe() {
+  let recipeAmount = [1, 6, 1, 70, 3, 1, 1, 2, 5, 1, 2, 2];
+  let recipeIngredients = [
+    "Kopfsalat(e)",
+    "kleine Tomaten(n)",
+    "kleine Paprikaschote(n), rote",
+    "Dose Mais",
+    "EL Weißweinessig",
+    "EL Balsamico",
+    "TL	Senf, mittelscharfer",
+    "TL	Zucker",
+    "TL	Salz",
+    "Prise(n)	Pfeffer",
+    "EL	Olivenöl",
+    "EL	Wasser, kaltes",
+  ];
+
+  for (let count = 0; count < recipeAmount.length; count++) {
+    document.getElementById("recipepage-load-ingredients").innerHTML += `
+    <tr>
+    <td>${recipeAmount[count]} ${recipeIngredients[count]}</td>
+    </tr>`;
+  }
 }

@@ -155,7 +155,7 @@ h2 {
 }
 
 .recipepage {
-  padding: 60px 80px;
+  padding: 40px 80px;
 }
 
 .recipepage-ingredients {
@@ -169,6 +169,7 @@ h2 {
 .recipepage-ingredients td {
   padding: 20px;
   border-radius: 10px;
+  margin: 0;
 }
 
 .recipepage-ingredients tr:nth-child(odd) {
@@ -305,7 +306,8 @@ footer a:hover {
 
   .landingpage,
   .section-recipe,
-  .section-recipe-idea-content {
+  .section-recipe-idea-content,
+  .recipepage {
     padding: 40px 20px;
   }
   .section-content {

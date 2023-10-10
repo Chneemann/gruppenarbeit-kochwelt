@@ -12,7 +12,7 @@
     <link rel="icon" href="./img/logo_small.png" type="image/x-icon" />
     <script src="./script.js"></script>
   </head>
-  <body onload="includeHTML();">
+  <body onload="includeHTML(); loadRecipe();">
     <div w3-include-html="header.html"></div>
 
     <section class="recipepage">
@@ -20,10 +20,10 @@
       <img class="recipepage-img" src="./img/sommerlicher-salat.webp" alt="" />
 
       <div class="recipepage-attributes">
-        <p><img src="./img/icons/clock-regular.svg" alt="" />15 Min.</p>
+        <p><img src="./img/icons/clock-regular.svg" alt="" />20 Min.</p>
         <p><img src="./img/icons/brain-solid.svg" alt="" />simple</p>
         <p>
-          <img src="./img/icons/calendar-alt-regular.svg" alt="" />28.09.2020
+          <img src="./img/icons/calendar-alt-regular.svg" alt="" />19.11.2018
         </p>
       </div>
       <div class="spacer"></div>
@@ -34,58 +34,39 @@
         <input class="button" type="submit" value="Portionen" />
       </form>
 
-    <div class="recipepage-ingredients">
-      <table>
-        <tr>
-          <td>1	Kopfsalat(e)</td>
-        </tr>
-        <tr>
-          <td>6 kleine Tomate(n)</td>
-        </tr>
-        <tr>
-          <td>1 kleine	Paprikaschote(n), rote</td>
-        </tr>
-        <tr>
-          <td>½ Dose	Mais</td>
-        </tr>
-        <tr>
-          <td>3 EL	Weißweinessig</td>
-        </tr>
-        <tr>
-          <td>1 EL	Balsamico</td>
-        </tr>
-        <tr>
-          <td>1 TL	Senf, mittelscharfer</td>
-        </tr>
-        <tr>
-          <td>2 TL	Zucker</td>
-        </tr>
-        <tr>
-          <td>½ TL	Salz</td>
-        </tr>
-        <td>1 Prise(n)	Pfeffer</td>
-      </tr>
-      <tr>
-        <td>2 EL	Olivenöl</td>
-      </tr>
-      <tr>
-        <td>2 EL	Wasser, kaltes</td>
-      </tr>
-      </table>
-    </div>
+      <div class="recipepage-ingredients">
+        <table>
+          <tbody id="recipepage-load-ingredients"></tbody>
+        </table>
+      </div>
 
-    <h2>Zubereitung</h2>
-    <div class="recipepage-attributes">
-      <p><img src="./img/icons/clock-regular.svg" alt="" />Arbeitszeit ca. 20 Minuten</p>
-      <p><img src="./img/icons/clock-regular.svg" alt="" />Gesamtzeit ca. 20 Minuten</p>
-    </div>
-    <p>Die Paprikaschoten waschen, entkernen und in kleine Würfel schneiden. Die Gurke schälen, halbieren, vierteln und in kleine Stücke schneiden. Die Tomaten waschen und halbieren, Lauchzwiebeln in dünne Ringe schneiden, alles in eine große Schüssel geben, Feta mit Öl und Oliven dazu geben, mit Salz und Pfeffer würzen, noch einen guten Schuss Essig dazu und soviel Dill, wie man mag dazu geben. Durchmischen, etwas ziehen lassen, fertig.
-      Lecker zum Grillen oder auch nur so mit Rusticana Baguette oder Weißbrot.</p>
+      <h2>Zubereitung</h2>
+      <div class="recipepage-attributes">
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Arbeitszeit ca. 20
+          Minuten
+        </p>
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Gesamtzeit ca. 20
+          Minuten
+        </p>
+      </div>
+      <p>
+        Die Paprikaschoten waschen, entkernen und in kleine Würfel schneiden.
+        Die Gurke schälen, halbieren, vierteln und in kleine Stücke schneiden.
+        Die Tomaten waschen und halbieren, Lauchzwiebeln in dünne Ringe
+        schneiden, alles in eine große Schüssel geben, Feta mit Öl und Oliven
+        dazu geben, mit Salz und Pfeffer würzen, noch einen guten Schuss Essig
+        dazu und soviel Dill, wie man mag dazu geben. Durchmischen, etwas ziehen
+        lassen, fertig. Lecker zum Grillen oder auch nur so mit Rusticana
+        Baguette oder Weißbrot.
+      </p>
 
-  <h4>Rezept erstellt von</h4>
-  <div class="recipepage-creator"><img src="./img/andre.jpeg" alt=""><span>Andre</span></div>
-
-</section>
+      <h4>Rezept erstellt von</h4>
+      <div class="recipepage-creator">
+        <img src="./img/andre.jpeg" alt="" /><span>Andre</span>
+      </div>
+    </section>
     <div w3-include-html="footer.html"></div>
   </body>
 </html>
