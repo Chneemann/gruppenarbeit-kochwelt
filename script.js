@@ -96,8 +96,11 @@ function loadRecipe() {
         <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
       </tr>`;
     }
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--white)";
+    element.style.borderColor = "var(--green)";
   } else {
-    const element = document.getElementById("recipepage-amount");
+    let element = document.getElementById("recipepage-amount");
     element.style.backgroundColor = "var(--red)";
     element.style.borderColor = "var(--red)";
   }
