@@ -83,13 +83,43 @@ function loadRecipe() {
   ];
 
   let amount = document.getElementById("recipepage-amount").value;
-
   document.getElementById("recipepage-load-ingredients").innerHTML = "";
 
   for (let count = 0; count < recipeAmount.length; count++) {
+    let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+    let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+
     document.getElementById("recipepage-load-ingredients").innerHTML += `
-    <tr>
-    <td>${(recipeAmount[count] / 4) * amount} ${recipeIngredients[count]}</td>
-    </tr>`;
+      <tr>
+        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+      </tr>`;
+  }
+
+  // Umrechnung auf den Bruch
+  // ½ = &#xBD;
+  // ¼ = &#xbc;
+  // ¾ = &#xbe;
+
+  function divideDecimal(decimal) {
+    const wholeNumber = Math.floor(decimal);
+    const fractionalPart = decimal - wholeNumber;
+    let fraction = "";
+    if (decimal % 1 !== 0) {
+      if (fractionalPart <= 0.25) {
+        fraction = "&#xbc;";
+      } else if (fractionalPart <= 0.5) {
+        fraction = "&#xBD;";
+      } else if (fractionalPart <= 0.75) {
+        fraction = "&#xbe;";
+      }
+    }
+
+    if (wholeNumber === 0) {
+      return fraction;
+    } else if (fraction) {
+      return `${wholeNumber} ${fraction}`;
+    } else {
+      return wholeNumber.toString();
+    }
   }
 }
