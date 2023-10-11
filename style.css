@@ -55,11 +55,21 @@ h2 {
   font-weight: 400;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .section-content {
   margin: 60px 80px;
 }
 
 /* Landingpage */
+
+.landingpage-content h2 {
+  margin: 0;
+  padding: 0;
+}
 
 .landingpage {
   display: flex;
@@ -68,12 +78,15 @@ h2 {
 }
 
 .landingpage-content {
+  display: flex;
+  flex-direction: column;
   margin-left: 40px;
   width: 50%;
+  position: relative;
 }
 
 .landingpage-content p {
-  height: 170px;
+  min-height: 250px;
 }
 
 .landingpage-img {
@@ -86,6 +99,8 @@ h2 {
 }
 
 .button {
+  position: absolute;
+  bottom: 0;
   background-color: var(--green);
   color: var(--white);
   text-decoration: none;
@@ -139,8 +154,8 @@ h2 {
 
 .section-recipe-idea h2 {
   text-align: center;
-  padding-top: 40px;
-  margin-bottom: 0;
+  padding-top: 60px;
+  margin: 0;
 }
 
 .section-recipe-idea-img {
@@ -202,7 +217,6 @@ h2 {
 
 .recipepage-attributes {
   display: flex;
-  padding-top: 16px;
 }
 
 .recipepage-attributes img {
@@ -219,8 +233,10 @@ h2 {
   margin-right: 24px;
 }
 
-.recipepage h2 {
-  padding-top: 20px;
+.recipepage h2,
+h3 {
+  margin: 0;
+  padding: 24px 0 18px 0;
 }
 
 .recipepage-numbers {
@@ -356,6 +372,13 @@ footer a:hover {
   }
   .section-recipe-details {
     padding-bottom: 40px;
+  }
+  .button {
+    position: relative;
+  }
+  .landingpage-content p {
+    min-height: 0;
+    padding-bottom: 24px;
   }
 }
 
