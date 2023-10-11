@@ -103,6 +103,7 @@ function loadRecipe() {
     let element = document.getElementById("recipepage-amount");
     element.style.backgroundColor = "var(--red)";
     element.style.borderColor = "var(--red)";
+    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
   }
 
   //------------- Umrechnung auf den Bruch und diesen Anzeigen lassen -------------
