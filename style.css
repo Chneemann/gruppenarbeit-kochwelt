@@ -228,18 +228,19 @@ h3 {
 .recipepage-attributes {
   display: flex;
 }
-
 .recipepage-attributes img {
   height: 15px;
   width: auto;
-  padding-right: 6px;
+  padding-right: 9px;
 }
 
 .recipepage-attributes p {
+  display: flex;
+  align-items: center;
   border: solid 0 var(--black);
   background-color: var(--light-gray);
   border-radius: 12px;
-  padding: 6px;
+  padding: 12px;
   margin-right: 24px;
 }
 
@@ -255,15 +256,18 @@ h3 {
 }
 
 #recipepage-amount {
-  width: 50px;
-  height: 38px;
-  padding-left: 20px;
+  width: 40px;
+  height: 36.5px;
+  padding: 0 6px 0 18px;
   margin-left: 10px;
-  border: 1px solid var(--light-gray);
+  border: 2px solid var(--green);
   border-radius: 0;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  box-shadow: 0;
+}
+#recipepage-amount:focus {
+  background-color: var(--light-gray) !important;
+  outline: none;
 }
 .recipepage .button {
   position: relative;
