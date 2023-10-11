@@ -377,7 +377,14 @@ footer a:hover {
 /* Media */
 
 @media (max-width: 420px) {
-  .contact-formular-name {
+  .recipepage-attributes p {
+    margin-right: 0;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .contact-formular-name,
+  .recipepage-attributes {
     flex-direction: column;
   }
 
