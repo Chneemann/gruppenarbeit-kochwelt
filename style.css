@@ -130,6 +130,16 @@ h3 {
   border-radius: 10px;
 }
 
+.section-recipe a {
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 400;
+}
+.section-recipe a:hover {
+  color: var(--green);
+}
+
 .section-recipe-details {
   padding: 0 20px;
 }
