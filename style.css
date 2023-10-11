@@ -256,6 +256,7 @@ h3 {
   box-shadow: 0;
 }
 .recipepage .button {
+  position: relative;
   padding: 10px 30px;
   border-radius: 0;
   border-top-right-radius: 20px;
@@ -274,10 +275,52 @@ h3 {
 
 /* Kontakt */
 
-.contact-formular {
+.contact-formular p {
+  font-weight: bold;
+  padding-top: 18px;
+}
+
+.contact-formular input {
+  padding: 8px;
+  width: 200px;
+}
+
+.contact-formular-email input {
+  width: 440px;
+}
+
+.contact-formular-message textarea {
+  height: 200px;
+  width: 454px;
+}
+
+.contact-formular-name {
+  display: flex;
+}
+
+.contact-formular-name-detail {
   display: flex;
   flex-direction: column;
-  width: 400px;
+}
+.contact-formular-name-detail:nth-child(1) {
+  margin-right: 20px;
+}
+
+.contact-button {
+  font-size: 16px;
+  margin-top: 24px;
+  background-color: var(--green);
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.contact-button:hover {
+  background-color: var(--white);
+  color: var(--green);
+  text-decoration: none;
+  border: solid 2px var(--green);
 }
 
 /* Footer */
@@ -319,6 +362,25 @@ footer a:hover {
 
 /* Media */
 
+@media (max-width: 420px) {
+  .contact-formular-name {
+    flex-direction: column;
+  }
+
+  .contact-formular-name-detail:nth-child(1) {
+    margin-right: 0px;
+    margin-bottom: 24px;
+  }
+
+  .contact-formular-email input {
+    width: 230px !important;
+  }
+
+  .contact-formular-message textarea {
+    width: 244px !important;
+  }
+}
+
 @media (max-width: 520px) {
   header img {
     width: 160px;
@@ -352,6 +414,21 @@ footer a:hover {
   }
   .footer-links a {
     padding: 0;
+  }
+}
+@media (max-width: 620px) {
+  .contact-formular input {
+    padding: 8px;
+    width: 150px;
+  }
+
+  .contact-formular-email input {
+    width: 340px;
+  }
+
+  .contact-formular-message textarea {
+    height: 150px;
+    width: 354px;
   }
 }
 
