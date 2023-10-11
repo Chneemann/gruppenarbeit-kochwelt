@@ -416,6 +416,17 @@ footer a:hover {
   .recipepage {
     padding: 40px 20px;
   }
+  .recipepage-numbers,
+  .recipepage-attributes,
+  .recipepage-creator {
+    justify-content: center;
+  }
+  .recipepage-attributes p:nth-child(2) {
+    margin-right: 0;
+  }
+  .recipepage {
+    text-align: center;
+  }
   .section-content {
     margin: 60px 20px;
   }
