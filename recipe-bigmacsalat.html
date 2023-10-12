@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kochwelt</title>
+    <link
+      href="./fonts/raleway/Raleway-VariableFont_wght.ttf"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img/logo_small.png" type="image/x-icon" />
+    <script src="./script.js"></script>
+  </head>
+  <body onload="includeHTML(); loadRecipeBigMac();">
+    <div w3-include-html="header.html"></div>
+
+    <section class="recipepage">
+      <h1>Big Mac Salat</h1>
+      <img class="recipepage-img" src="./img//big-mac-salat.jpg" alt="" />
+
+      <div class="recipepage-attributes">
+        <p><img src="./img/icons/clock-regular.svg" alt="" />90 Min.</p>
+        <p><img src="./img/icons/brain-solid.svg" alt="" />simple</p>
+        <p>
+          <img src="./img/icons/calendar-alt-regular.svg" alt="" />09.10.2023
+        </p>
+      </div>
+      <div class="spacer"></div>
+
+      <form class="recipepage-numbers" action="">
+        <label for="recipepage-amount">Zutaten für</label>
+        <input id="recipepage-amount" type="number" min="1" max="12" value="4" /
+        required>
+        <a class="button" onclick="loadRecipeBigMac()">Portionen</a>
+      </form>
+
+      <div class="recipepage-ingredients">
+        <p>Für den Salat</p>
+        <table>
+          <tbody id="recipepage-load-ingredients-salad"></tbody>
+        </table>
+        <p>Für den Soße</p>
+        <table>
+          <tbody id="recipepage-load-ingredients-sauce"></tbody>
+        </table>
+      </div>
+
+      <h2>Zubereitung</h2>
+      <div class="recipepage-attributes">
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Arbeitszeit ca. 90
+          Minuten
+        </p>
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Ruhezeit der Sauce
+          ca. 8 Stunden
+        </p>
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Gesamtzeit ca. 9
+          Stunden 30 Minuten
+        </p>
+      </div>
+      <p>
+        Für die Sauce alle Zutaten vermengen und für 25 Sekunden in die
+        Mikrowelle geben. Anschließend noch mal kurz umrühren und über Nacht im
+        Kühlschrank ziehen lassen, die Zwiebeln rehydrieren dabei. Das
+        Hackfleisch scharf anbraten, mit Salz und Pfeffer würzen und auskühlen
+        lassen. Die Hamburgerbrötchen halbieren, toasten und in ca. 2 x 2 cm
+        große Würfel schneiden. Für die Optik 4 Deckel für die oberste Schicht
+        reservieren, diese ebenfalls würfeln. Den Eisbergsalat in mundgerechte
+        Stücke schneiden. Für den Schichtsalat als Erstes 1/3 der Brötchenwürfel
+        in eine große Glasschüssel geben. Anschließend folgt jeweils eine Hälfte
+        des Eisbergsalates, der Sauce, des Fleisches. Dann eine Schicht
+        Käsescheiben, der Rest Brötchenwürfel (außer die für die letzte
+        Schicht), der übrige Eisbergsalat, die zweite Hälfte Sauce, eine Schicht
+        aus Gewürzgurkenscheiben, die zweite Hälfte Fleisch. Abschließend werden
+        die gewürfelten Brötchendeckel so auf den Salat gelegt, dass die Seiten
+        mit Sesam oben liegen.
+      </p>
+
+      <h3>Rezept erstellt von</h3>
+      <div class="recipepage-creator">
+        <img src="./img/christian.jpg" alt="" /><span>Christian</span>
+      </div>
+    </section>
+    <div w3-include-html="footer.html"></div>
+  </body>
+</html>

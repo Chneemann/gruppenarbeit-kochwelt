@@ -12,7 +12,7 @@
     <link rel="icon" href="./img/logo_small.png" type="image/x-icon" />
     <script src="./script.js"></script>
   </head>
-  <body onload="includeHTML(); loadRecipe();">
+  <body onload="includeHTML(); loadDailyRecipe();">
     <div w3-include-html="header.html"></div>
 
     <section class="recipepage">
@@ -32,7 +32,7 @@
         <label for="recipepage-amount">Zutaten für</label>
         <input id="recipepage-amount" type="number" min="1" max="12" value="4" /
         required>
-        <a class="button" onclick="loadRecipe()">Portionen</a>
+        <a class="button" onclick="loadDailyRecipe()">Portionen</a>
       </form>
 
       <div class="recipepage-ingredients">
