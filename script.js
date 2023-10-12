@@ -112,7 +112,7 @@ function loadRecipeBigMac() {
           "recipepage-load-ingredients-sauce"
         ).innerHTML += `
       <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}  ${recipeAmountNew}</td>
+        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
       </tr>`;
       }
     }
