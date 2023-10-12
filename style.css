@@ -209,6 +209,7 @@ h3 {
 
 .recipepage-ingredients p {
   text-decoration: underline;
+  padding-top: 16px;
 }
 
 .recipepage-creator {
@@ -386,17 +387,6 @@ footer a:hover {
 /* Media */
 
 @media (max-width: 420px) {
-  .recipepage-attributes p {
-    margin-right: 0;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  .contact-formular-name,
-  .recipepage-attributes {
-    flex-direction: column;
-  }
-
   .contact-formular-name-detail:nth-child(1) {
     margin-right: 0px;
     margin-bottom: 24px;
@@ -458,6 +448,17 @@ footer a:hover {
   }
 }
 @media (max-width: 620px) {
+  .contact-formular-name,
+  .recipepage-attributes {
+    flex-direction: column;
+  }
+
+  .recipepage-attributes p {
+    margin-right: 0;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
   .contact-formular input {
     padding: 8px;
     width: 150px;
