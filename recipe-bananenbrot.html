@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kochwelt</title>
+    <link
+      href="./fonts/raleway/Raleway-VariableFont_wght.ttf"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img/logo_small.png" type="image/x-icon" />
+    <script src="./script.js"></script>
+  </head>
+  <body onload="includeHTML(); loadRecipeBananenbrot();">
+    <div w3-include-html="header.html"></div>
+
+    <section class="recipepage">
+      <h1>Bananenbrot</h1>
+      <img class="recipepage-img" src="./img/bananenbrot.png" alt="" />
+
+      <div class="recipepage-attributes">
+        <p><img src="./img/icons/clock-regular.svg" alt="" />55 Min.</p>
+        <p><img src="./img/icons/brain-solid.svg" alt="" />simple</p>
+        <p>
+          <img src="./img/icons/calendar-alt-regular.svg" alt="" />16.10.2023
+        </p>
+      </div>
+      <div class="spacer"></div>
+
+      <form class="recipepage-numbers" action="">
+        <label for="recipepage-amount">Zutaten für</label>
+        <input id="recipepage-amount" type="number" min="1" max="12" value="4" /
+        required>
+        <a class="button" onclick="loadRecipeBananenbrot()">Portionen</a>
+      </form>
+
+      <div class="recipepage-ingredients">
+        <table>
+          <tbody id="recipepage-load-ingredients"></tbody>
+        </table>
+      </div>
+
+      <h2>Zubereitung</h2>
+      <div class="recipepage-attributes">
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Arbeitszeit ca. 20
+          Minuten
+        </p>
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Gesamtzeit ca. 55
+          Minuten
+        </p>
+      </div>
+      <p>
+        <b>Schritt 1:</b> Ofen auf 180 Grad Ober-/Unterhitze (Umluft: 160 Grad)
+        vorheizen. Kastenform (Innenmaße 23 x 10 cm) gut einfetten. Bananen mit
+        einer Gabel in einer Schüssel zerdrücken.<br /><br />
+        <b>Schritt 2:</b> Vanilleschote mit einem Messer der Länge nach
+        einritzen und mit dem Messerrücken auskratzen. Öl mit braunem Zucker und
+        Eier verquirlen. Mehl, Backpulver, Salz, Zimt und Vanilleschote
+        vermischen und mit der Öl-Eiermasse verrühren. Bananen-Püree einrühren.
+        Teig in die Form geben und im vorgeheizten Ofen etwa 55 Minuten backen.
+        Das Bananenbrot nach dem Backen vollständig auskühlen lassen, erst dann
+        aus der Form nehmen. Ein Bananenbrot ergibt ca. 10 Stücke.
+      </p>
+
+      <h3>Rezept erstellt von</h3>
+      <div class="recipepage-creator">
+        <img src="./img/profile.png" alt="" /><span>Davor</span>
+      </div>
+    </section>
+    <div w3-include-html="footer.html"></div>
+  </body>
+</html>

@@ -127,6 +127,7 @@ h3 {
 
 .section-recipe img {
   width: 100%;
+  height: 80%;
   border-radius: 10px;
 }
 
@@ -474,7 +475,7 @@ footer a:hover {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .landingpage,
   .section-recipe,
   .section-recipe-idea-content {
@@ -489,8 +490,9 @@ footer a:hover {
     width: 100%;
     margin: 20px 0;
   }
+
   .section-recipe-details {
-    padding-bottom: 40px;
+    padding: 0 0 40px 0;
   }
   .button {
     position: relative;

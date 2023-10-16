@@ -127,6 +127,102 @@ function loadRecipeBigMac() {
   }
 }
 
+function loadRecipeSpagettiBolognese() {
+  let recipeAmount = [1, 2, 1, 1, 1, 350, 400, 2, 2, 2, 1, 1, 370, 4];
+  let recipeIngredients = [
+    "Stk	Zwiebe",
+    "Stk	Knoblauchzehen",
+    "Stk	Karotte",
+    "EL	Petersilie",
+    "EL	Olivenöl für den Topf",
+    "g Faschiertes (Rindfleisch)",
+    "g	Tomatensauce",
+    "EL	Oregano",
+    "EL	Rotwein",
+    "EL	Tomatenmark",
+    "Prise Salz",
+    "Prise	Pfeffer",
+    "g	Spaghetti",
+    "l Salzwasser",
+  ];
+
+  let amount = document.getElementById("recipepage-amount").value;
+
+  if (amount >= 1 && amount <= 12) {
+    document.getElementById("recipepage-load-ingredients-salad").innerHTML = "";
+    document.getElementById("recipepage-load-ingredients-sauce").innerHTML = "";
+
+    for (let count = 0; count < recipeAmount.length; count++) {
+      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+
+      if (count < 12) {
+        document.getElementById(
+          "recipepage-load-ingredients-salad"
+        ).innerHTML += `
+        <tr>
+          <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+        </tr>`;
+      } else {
+        document.getElementById(
+          "recipepage-load-ingredients-sauce"
+        ).innerHTML += `
+      <tr>
+        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+      </tr>`;
+      }
+    }
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--white)";
+    element.style.borderColor = "var(--green)";
+  } else {
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--red)";
+    element.style.borderColor = "var(--red)";
+    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
+  }
+}
+
+function loadRecipeBananenbrot() {
+  let recipeAmount = [12, 320, 440, 8, 800, 12, 4, 4, 4];
+  let recipeIngredients = [
+    "Reife Bananen",
+    "ml	neutrales Öl (z.B. Sonnenblumenöl",
+    "g	brauner Zucker",
+    "Eie(r)",
+    "g Weizenmehl (Type 405)",
+    "TL	Backpuler",
+    "Prisen	Salz",
+    "Vanilleschoten",
+    "Prisen	Zimt",
+    "etwas Butter für die Form",
+  ];
+
+  let amount = document.getElementById("recipepage-amount").value;
+
+  if (amount >= 1 && amount <= 12) {
+    document.getElementById("recipepage-load-ingredients").innerHTML = "";
+
+    for (let count = 0; count < recipeAmount.length; count++) {
+      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+
+      document.getElementById("recipepage-load-ingredients").innerHTML += `
+      <tr>
+        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+      </tr>`;
+    }
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--white)";
+    element.style.borderColor = "var(--green)";
+  } else {
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--red)";
+    element.style.borderColor = "var(--red)";
+    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
+  }
+}
+
 function loadDailyRecipe() {
   let recipeAmount = [1, 6, 1, 1, 3, 1, 1, 2, 5, 1, 2, 2];
   let recipeIngredients = [

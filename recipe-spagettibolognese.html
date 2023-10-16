@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kochwelt</title>
+    <link
+      href="./fonts/raleway/Raleway-VariableFont_wght.ttf"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img/logo_small.png" type="image/x-icon" />
+    <script src="./script.js"></script>
+  </head>
+  <body onload="includeHTML(); loadRecipeSpagettiBolognese();">
+    <div w3-include-html="header.html"></div>
+
+    <section class="recipepage">
+      <h1>Spaghetti Bolognese</h1>
+      <img class="recipepage-img" src="./img/spagetti-bolognese.webp" alt="" />
+
+      <div class="recipepage-attributes">
+        <p><img src="./img/icons/clock-regular.svg" alt="" />30 Min.</p>
+        <p><img src="./img/icons/brain-solid.svg" alt="" />simple</p>
+        <p>
+          <img src="./img/icons/calendar-alt-regular.svg" alt="" />16.10.2023
+        </p>
+      </div>
+      <div class="spacer"></div>
+
+      <form class="recipepage-numbers" action="">
+        <label for="recipepage-amount">Zutaten für</label>
+        <input id="recipepage-amount" type="number" min="1" max="12" value="4" /
+        required>
+        <a class="button" onclick="loadRecipeSpagettiBolognese()">Portionen</a>
+      </form>
+
+      <div class="recipepage-ingredients">
+        <p>Für den Salat</p>
+        <table>
+          <tbody id="recipepage-load-ingredients-salad"></tbody>
+        </table>
+        <p>Für den Soße</p>
+        <table>
+          <tbody id="recipepage-load-ingredients-sauce"></tbody>
+        </table>
+      </div>
+
+      <h2>Zubereitung</h2>
+      <div class="recipepage-attributes">
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Arbeitszeit ca. 20
+          Minuten
+        </p>
+        <p>
+          <img src="./img/icons/clock-regular.svg" alt="" />Gesamtzeit ca. 30
+          Minuten
+        </p>
+      </div>
+      <p>
+        Die Zwiebel schälen und in kleine Würfel schneiden. Den Knoblauch
+        schälen und in kleine Stücke hacken. Die Karotten waschen, schälen, die
+        harten Enden vom Stiel schneiden, den Rest sehr klein schneiden oder
+        raspeln. Die Petersilie waschen, trocken schütteln und fein hacken.
+        Danach reichlich Salzwasser aufkochen und die Nudeln darin bissfest
+        kochen (=al dente) und anschließend durch ein Sieb abgießen. In der
+        Zwischenzeit das Öl in einem Topf erhitzen und darin Knoblauch sowie
+        Zwiebel 4 Minuten dünsten. Die Karotten hinzufügen und weitere 2 Minuten
+        mitdünsten. Nun das Faschierte beimengen und kurz durchbraten.
+        Tomatensauce, Oregano und Rotwein hinzufügen und die Flüssigkeit etwas
+        reduzieren lassen. Den Deckel auf den Topf geben und bei kleiner Hitze
+        gut 40-50 Minuten köcheln lassen. Zum Schluss das Tomatenmark
+        unterrühren und die Sauce mit Salz, Pfeffer und der Petersilie
+        abschmecken. Die gekochten Spagetti appetitlich auf Tellern anrichten,
+        die Sauce darüber geben und mit ein paar frischen Basilikumblättern
+        garnieren.
+      </p>
+
+      <h3>Rezept erstellt von</h3>
+      <div class="recipepage-creator">
+        <img src="./img/profile.png" alt="" /><span>Anouar</span>
+      </div>
+    </section>
+    <div w3-include-html="footer.html"></div>
+  </body>
+</html>
