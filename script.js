@@ -90,41 +90,7 @@ function loadRecipeBigMac() {
     "EL	Gurkenrelish, süs-sauer",
   ];
 
-  let amount = document.getElementById("recipepage-amount").value;
-
-  if (amount >= 1 && amount <= 12) {
-    document.getElementById("recipepage-load-ingredients-salad").innerHTML = "";
-    document.getElementById("recipepage-load-ingredients-sauce").innerHTML = "";
-
-    for (let count = 0; count < recipeAmount.length; count++) {
-      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
-
-      if (count < 7) {
-        document.getElementById(
-          "recipepage-load-ingredients-salad"
-        ).innerHTML += `
-        <tr>
-          <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
-        </tr>`;
-      } else {
-        document.getElementById(
-          "recipepage-load-ingredients-sauce"
-        ).innerHTML += `
-      <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
-      </tr>`;
-      }
-    }
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--white)";
-    element.style.borderColor = "var(--green)";
-  } else {
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--red)";
-    element.style.borderColor = "var(--red)";
-    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
-  }
+  loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients);
 }
 
 function loadRecipeSpagettiBolognese() {
@@ -146,6 +112,73 @@ function loadRecipeSpagettiBolognese() {
     "l Salzwasser",
   ];
 
+  loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients);
+}
+
+function loadRecipeBananenbrot() {
+  let recipeAmount = [12, 320, 440, 8, 800, 12, 4, 4, 4];
+  let recipeIngredients = [
+    "Reife Bananen",
+    "ml	neutrales Öl (z.B. Sonnenblumenöl",
+    "g	brauner Zucker",
+    "Eie(r)",
+    "g Weizenmehl (Type 405)",
+    "TL	Backpuler",
+    "Prisen	Salz",
+    "Vanilleschoten",
+    "Prisen	Zimt",
+    "etwas Butter für die Form",
+  ];
+
+  loadRecipeOneCookingstep(recipeAmount, recipeIngredients);
+}
+
+function loadDailyRecipe() {
+  let recipeAmount = [1, 6, 1, 1, 3, 1, 1, 2, 5, 1, 2, 2];
+  let recipeIngredients = [
+    "Kopfsalat(e)",
+    "kleine Tomaten(n)",
+    "kleine Paprikaschote(n), rote",
+    "Dose Mais",
+    "EL Weißweinessig",
+    "EL Balsamico",
+    "TL	Senf, mittelscharfer",
+    "TL	Zucker",
+    "TL	Salz",
+    "Prise(n)	Pfeffer",
+    "EL	Olivenöl",
+    "EL	Wasser, kaltes",
+  ];
+  loadRecipeOneCookingstep(recipeAmount, recipeIngredients);
+}
+
+function loadRecipeOneCookingstep(recipeAmount, recipeIngredients) {
+  let amount = document.getElementById("recipepage-amount").value;
+
+  if (amount >= 1 && amount <= 12) {
+    document.getElementById("recipepage-load-ingredients").innerHTML = "";
+
+    for (let count = 0; count < recipeAmount.length; count++) {
+      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+
+      document.getElementById("recipepage-load-ingredients").innerHTML += `
+      <tr>
+        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+      </tr>`;
+    }
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--white)";
+    element.style.borderColor = "var(--green)";
+  } else {
+    let element = document.getElementById("recipepage-amount");
+    element.style.backgroundColor = "var(--red)";
+    element.style.borderColor = "var(--red)";
+    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
+  }
+}
+
+function loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients) {
   let amount = document.getElementById("recipepage-amount").value;
 
   if (amount >= 1 && amount <= 12) {
@@ -183,102 +216,20 @@ function loadRecipeSpagettiBolognese() {
   }
 }
 
-function loadRecipeBananenbrot() {
-  let recipeAmount = [12, 320, 440, 8, 800, 12, 4, 4, 4];
-  let recipeIngredients = [
-    "Reife Bananen",
-    "ml	neutrales Öl (z.B. Sonnenblumenöl",
-    "g	brauner Zucker",
-    "Eie(r)",
-    "g Weizenmehl (Type 405)",
-    "TL	Backpuler",
-    "Prisen	Salz",
-    "Vanilleschoten",
-    "Prisen	Zimt",
-    "etwas Butter für die Form",
-  ];
-
-  let amount = document.getElementById("recipepage-amount").value;
-
-  if (amount >= 1 && amount <= 12) {
-    document.getElementById("recipepage-load-ingredients").innerHTML = "";
-
-    for (let count = 0; count < recipeAmount.length; count++) {
-      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
-
-      document.getElementById("recipepage-load-ingredients").innerHTML += `
-      <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
-      </tr>`;
-    }
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--white)";
-    element.style.borderColor = "var(--green)";
-  } else {
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--red)";
-    element.style.borderColor = "var(--red)";
-    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
-  }
-}
-
-function loadDailyRecipe() {
-  let recipeAmount = [1, 6, 1, 1, 3, 1, 1, 2, 5, 1, 2, 2];
-  let recipeIngredients = [
-    "Kopfsalat(e)",
-    "kleine Tomaten(n)",
-    "kleine Paprikaschote(n), rote",
-    "Dose Mais",
-    "EL Weißweinessig",
-    "EL Balsamico",
-    "TL	Senf, mittelscharfer",
-    "TL	Zucker",
-    "TL	Salz",
-    "Prise(n)	Pfeffer",
-    "EL	Olivenöl",
-    "EL	Wasser, kaltes",
-  ];
-
-  let amount = document.getElementById("recipepage-amount").value;
-
-  if (amount >= 1 && amount <= 12) {
-    document.getElementById("recipepage-load-ingredients").innerHTML = "";
-
-    for (let count = 0; count < recipeAmount.length; count++) {
-      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
-
-      document.getElementById("recipepage-load-ingredients").innerHTML += `
-      <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
-      </tr>`;
-    }
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--white)";
-    element.style.borderColor = "var(--green)";
-  } else {
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--red)";
-    element.style.borderColor = "var(--red)";
-    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
-  }
-}
-
 //------------- Umrechnung auf den Bruch und diesen Anzeigen lassen -------------
+
 function divideDecimal(decimal) {
-  // Schritt 1: Ermitteln der ganzen Zahlkomponente
+  // Ermitteln der ganzen Zahlkomponente
   const wholeNumber = Math.floor(decimal);
 
-  // Schritt 2: Ermitteln der Nachkommastellenkomponente
+  // Ermitteln der Nachkommastellenkomponente
   const fractionalPart = decimal - wholeNumber;
 
-  // Schritt 3: Initialisieren der Fraktionszeichenkette
   let fraction = "";
 
-  // Schritt 4: Überprüfen, ob die Dezimalzahl Nachkommastellen hat
+  // Überprüfen, ob die Dezimalzahl Nachkommastellen hat
   if (decimal % 1 !== 0) {
-    // Schritt 5: Bestimmen der Fraktionskomponente basierend auf fractionalPart
+    // Bestimmen der Fraktionskomponente basierend auf fractionalPart
     const fractionValue = Math.round(fractionalPart * 4);
     if (fractionValue === 1) {
       fraction = "&#xbc;"; // "&#xbc;" entspricht dem Bruch "¼"
@@ -289,22 +240,16 @@ function divideDecimal(decimal) {
     }
   }
 
-  // Schritt 6: Überprüfen, ob es keine ganze Zahl gibt
+  // Überprüfen, ob es keine ganze Zahl gibt
   if (wholeNumber === 0) {
-    // In diesem Fall wird nur die Fraktion zurückgegeben
     return fraction;
   }
-
-  // Schritt 7: Überprüfen, ob es sowohl eine ganze Zahl als auch eine Fraktion gibt
+  // Überprüfen, ob es sowohl eine ganze Zahl als auch eine Fraktion gibt
   else if (fraction) {
-    // In diesem Fall werden ganze Zahl und Fraktion kombiniert
-    // und als Zeichenkette zurückgegeben, getrennt durch ein Leerzeichen
     return `${wholeNumber} ${fraction}`;
   }
-
-  // Schritt 8: Wenn weder ganze Zahl noch Fraktion vorhanden sind
+  // Wenn weder ganze Zahl noch Fraktion vorhanden sind
   else {
-    // Die ganze Zahl wird in eine Zeichenkette umgewandelt und zurückgegeben
     return wholeNumber.toString();
   }
 }
