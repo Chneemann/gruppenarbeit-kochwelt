@@ -10,7 +10,7 @@ function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
 
-/*  ------------------ RECIPEPAGE LOAD INGREDIENTS  ------------------ */
+/*  ------------------ LOAD INGREDIENTS  ------------------ */
 
 function loadRecipeBigMac() {
   let recipeAmount = [
@@ -38,13 +38,13 @@ function loadRecipeBigMac() {
   ];
   let cookingsteps = 7;
 
-  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
+  loadRecipe(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadRecipeSpagettiBolognese() {
   let recipeAmount = [1, 2, 1, 1, 1, 350, 400, 2, 2, 2, 1, 1, 370, 4];
   let recipeIngredients = [
-    "Stk	Zwiebe",
+    "Stk	Zwiebel",
     "Stk	Knoblauchzehen",
     "Stk	Karotte",
     "EL	Petersilie",
@@ -62,7 +62,7 @@ function loadRecipeSpagettiBolognese() {
 
   let cookingsteps = 12;
 
-  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
+  loadRecipe(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadRecipeBananenbrot() {
@@ -82,10 +82,10 @@ function loadRecipeBananenbrot() {
 
   let cookingsteps = 0;
 
-  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
+  loadRecipe(recipeAmount, recipeIngredients, cookingsteps);
 }
 
-function loadDailyRecipe() {
+function loadRecipeSommerlicherSalat() {
   let recipeAmount = [1, 6, 1, 1, 3, 1, 1, 2, 5, 1, 2, 2];
   let recipeIngredients = [
     "Kopfsalat(e)",
@@ -103,41 +103,16 @@ function loadDailyRecipe() {
   ];
   let cookingsteps = 0;
 
-  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
+  loadRecipe(recipeAmount, recipeIngredients, cookingsteps);
 }
 
-function loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps) {
+/*  ------------------ LOAD RECIPE  ------------------ */
+
+function loadRecipe(recipeAmount, recipeIngredients, cookingsteps) {
   let amount = document.getElementById("recipepage-amount").value;
 
   if (amount >= 1 && amount <= 12) {
-    for (let count = 0; count < recipeAmount.length; count++) {
-      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      recipeAmountNew =
-        Math.round((recipeAmountNew + Number.EPSILON) * 100) / 100;
-
-      recipeAmountNew = recipeAmountNew === 0 ? "" : recipeAmountNew;
-
-      if (cookingsteps == 0) {
-        count === 0 &&
-          (document.getElementById("recipepage-load-ingredients").innerHTML =
-            "");
-        oneCookingStep(recipeAmountNew, recipeIngredients, count);
-      } else {
-        count === 0 &&
-          ((document.getElementById(
-            "recipepage-load-ingredients-stepone"
-          ).innerHTML = ""),
-          (document.getElementById(
-            "recipepage-load-ingredients-steptwo"
-          ).innerHTML = ""));
-        twoCookingSteps(
-          recipeAmountNew,
-          recipeIngredients,
-          cookingsteps,
-          count
-        );
-      }
-    }
+    calculateRecipe(recipeAmount, recipeIngredients, cookingsteps, amount);
     let element = document.getElementById("recipepage-amount");
     element.style.backgroundColor = "var(--white)";
     element.style.borderColor = "var(--green)";
@@ -148,6 +123,42 @@ function loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps) {
     alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
   }
 }
+
+/*  ------------------ CALCULATE RECIPE  ------------------ */
+
+function calculateRecipe(
+  recipeAmount,
+  recipeIngredients,
+  cookingsteps,
+  amount
+) {
+  for (let count = 0; count < recipeAmount.length; count++) {
+    let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+    recipeAmountNew =
+      Math.round((recipeAmountNew + Number.EPSILON) * 100) / 100;
+
+    recipeAmountNew = recipeAmountNew === 0 ? "" : recipeAmountNew;
+
+    if (cookingsteps == 0) {
+      count === 0 &&
+        (document.getElementById("recipepage-load-ingredients").innerHTML = "");
+      oneCookingStep(recipeAmountNew, recipeIngredients, count);
+    } else {
+      count === 0 &&
+        ((document.getElementById(
+          "recipepage-load-ingredients-stepone"
+        ).innerHTML = ""),
+        (document.getElementById(
+          "recipepage-load-ingredients-steptwo"
+        ).innerHTML = ""));
+      twoCookingSteps(recipeAmountNew, recipeIngredients, cookingsteps, count);
+    }
+  }
+}
+
+/*  ------------------ COOKINGSTEPS  ------------------ */
+/*  Falls das Rezept mehrere Kochschritte hat 
+(z.b eines für die Spaghettis und die Soße) */
 
 function oneCookingStep(recipeAmountNew, recipeIngredients, count) {
   document.getElementById("recipepage-load-ingredients").innerHTML += `
@@ -178,8 +189,6 @@ function twoCookingSteps(
 </tr>`;
   }
 }
-
-/*  ------------------ Umrechnung auf den Bruch  ------------------ */
 
 /*  ------------------ INCLUDE HTML ------------------ */
 
