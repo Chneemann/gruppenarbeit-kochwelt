@@ -31,7 +31,7 @@ header img {
   margin-bottom: 10px;
 }
 
-nav a {
+.nav-link {
   color: var(--black);
   text-decoration: none;
   font-size: 18px;
@@ -40,7 +40,7 @@ nav a {
   margin: 8px;
 }
 
-nav a:hover {
+.nav-link:hover {
   color: var(--green);
   box-shadow: 0 6px 0px -2px var(--green);
 }
@@ -530,7 +530,7 @@ footer a:hover {
   left: 0;
   top: 0;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
   overflow-x: hidden;
   transition: 0.3s;
 }
@@ -552,9 +552,9 @@ footer a:hover {
   transition: 0.3s;
 }
 
-.overlay a:hover,
-.overlay a:focus {
+.overlay a:hover {
   color: var(--green);
+  text-decoration: none;
 }
 
 .overlay .closebtn {

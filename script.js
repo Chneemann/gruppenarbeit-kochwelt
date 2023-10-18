@@ -80,7 +80,7 @@ function loadRecipeBananenbrot() {
     "etwas Butter für die Form",
   ];
 
-  let cookingsteps = false;
+  let cookingsteps = 0;
 
   loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
@@ -101,25 +101,42 @@ function loadDailyRecipe() {
     "EL	Olivenöl",
     "EL	Wasser, kaltes",
   ];
-  let cookingsteps = true;
+  let cookingsteps = 0;
 
   loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
 
-function loadRecipeOneCookingstep(recipeAmount, recipeIngredients) {
+function loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps) {
   let amount = document.getElementById("recipepage-amount").value;
 
   if (amount >= 1 && amount <= 12) {
-    document.getElementById("recipepage-load-ingredients").innerHTML = "";
-
     for (let count = 0; count < recipeAmount.length; count++) {
       let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+      recipeAmountNew =
+        Math.round((recipeAmountNew + Number.EPSILON) * 100) / 100;
 
-      document.getElementById("recipepage-load-ingredients").innerHTML += `
-      <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
-      </tr>`;
+      recipeAmountNew = recipeAmountNew === 0 ? "" : recipeAmountNew;
+
+      if (cookingsteps == 0) {
+        count === 0 &&
+          (document.getElementById("recipepage-load-ingredients").innerHTML =
+            "");
+        oneCookingStep(recipeAmountNew, recipeIngredients, count);
+      } else {
+        count === 0 &&
+          ((document.getElementById(
+            "recipepage-load-ingredients-stepone"
+          ).innerHTML = ""),
+          (document.getElementById(
+            "recipepage-load-ingredients-steptwo"
+          ).innerHTML = ""));
+        twoCookingSteps(
+          recipeAmountNew,
+          recipeIngredients,
+          cookingsteps,
+          count
+        );
+      }
     }
     let element = document.getElementById("recipepage-amount");
     element.style.backgroundColor = "var(--white)";
@@ -132,55 +149,35 @@ function loadRecipeOneCookingstep(recipeAmount, recipeIngredients) {
   }
 }
 
-function loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps) {
-  let amount = document.getElementById("recipepage-amount").value;
-
-  if (count != false) {
-    console.log(count);
-
-    if (amount >= 1 && amount <= 12) {
-      document.getElementById("recipepage-load-ingredients-stepone").innerHTML =
-        "";
-      document.getElementById("recipepage-load-ingredients-steptwo").innerHTML =
-        "";
-
-      for (let count = 0; count < recipeAmount.length; count++) {
-        let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-        recipeAmountNew =
-          Math.round((recipeAmountNew + Number.EPSILON) * 100) / 100;
-
-        recipeAmountNew = recipeAmountNew === 0 ? "" : recipeAmountNew;
-
-        if (count < cookingsteps) {
-          document.getElementById(
-            "recipepage-load-ingredients-stepone"
-          ).innerHTML += `
-        <tr>
-          <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
-        </tr>`;
-        } else {
-          document.getElementById(
-            "recipepage-load-ingredients-steptwo"
-          ).innerHTML += `
-      <tr>
-        <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
-      </tr>`;
-        }
-      }
-
-      let element = document.getElementById("recipepage-amount");
-      element.style.backgroundColor = "var(--white)";
-      element.style.borderColor = "var(--green)";
-    } else {
-      let element = document.getElementById("recipepage-amount");
-      element.style.backgroundColor = "var(--red)";
-      element.style.borderColor = "var(--red)";
-      alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
-    }
-  }
+function oneCookingStep(recipeAmountNew, recipeIngredients, count) {
+  document.getElementById("recipepage-load-ingredients").innerHTML += `
+  <tr>
+    <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+  </tr>`;
 }
 
-function checkNumberOfIngredients() {}
+function twoCookingSteps(
+  recipeAmountNew,
+  recipeIngredients,
+  cookingsteps,
+  count
+) {
+  if (count < cookingsteps) {
+    document.getElementById(
+      "recipepage-load-ingredients-stepone"
+    ).innerHTML += `
+<tr>
+  <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+</tr>`;
+  } else {
+    document.getElementById(
+      "recipepage-load-ingredients-steptwo"
+    ).innerHTML += `
+<tr>
+<td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+</tr>`;
+  }
+}
 
 /*  ------------------ Umrechnung auf den Bruch  ------------------ */
 
