@@ -36,8 +36,9 @@ function loadRecipeBigMac() {
     "TL	Salz",
     "EL	Gurkenrelish, süs-sauer",
   ];
+  let cookingsteps = 7;
 
-  loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients);
+  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadRecipeSpagettiBolognese() {
@@ -59,7 +60,9 @@ function loadRecipeSpagettiBolognese() {
     "l Salzwasser",
   ];
 
-  loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients);
+  let cookingsteps = 12;
+
+  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadRecipeBananenbrot() {
@@ -77,7 +80,9 @@ function loadRecipeBananenbrot() {
     "etwas Butter für die Form",
   ];
 
-  loadRecipeOneCookingstep(recipeAmount, recipeIngredients);
+  let cookingsteps = false;
+
+  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadDailyRecipe() {
@@ -96,7 +101,9 @@ function loadDailyRecipe() {
     "EL	Olivenöl",
     "EL	Wasser, kaltes",
   ];
-  loadRecipeOneCookingstep(recipeAmount, recipeIngredients);
+  let cookingsteps = true;
+
+  loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps);
 }
 
 function loadRecipeOneCookingstep(recipeAmount, recipeIngredients) {
@@ -125,81 +132,57 @@ function loadRecipeOneCookingstep(recipeAmount, recipeIngredients) {
   }
 }
 
-function loadRecipeTwoCookingsteps(recipeAmount, recipeIngredients) {
+function loadRecipeCookingsteps(recipeAmount, recipeIngredients, cookingsteps) {
   let amount = document.getElementById("recipepage-amount").value;
 
-  if (amount >= 1 && amount <= 12) {
-    document.getElementById("recipepage-load-ingredients-salad").innerHTML = "";
-    document.getElementById("recipepage-load-ingredients-sauce").innerHTML = "";
+  if (count != false) {
+    console.log(count);
 
-    for (let count = 0; count < recipeAmount.length; count++) {
-      let recipeAmountNew = (recipeAmount[count] / 4) * amount;
-      let recipeAmountDecimal = divideDecimal(recipeAmountNew);
+    if (amount >= 1 && amount <= 12) {
+      document.getElementById("recipepage-load-ingredients-stepone").innerHTML =
+        "";
+      document.getElementById("recipepage-load-ingredients-steptwo").innerHTML =
+        "";
 
-      if (count < 12) {
-        document.getElementById(
-          "recipepage-load-ingredients-salad"
-        ).innerHTML += `
+      for (let count = 0; count < recipeAmount.length; count++) {
+        let recipeAmountNew = (recipeAmount[count] / 4) * amount;
+        recipeAmountNew =
+          Math.round((recipeAmountNew + Number.EPSILON) * 100) / 100;
+
+        recipeAmountNew = recipeAmountNew === 0 ? "" : recipeAmountNew;
+
+        if (count < cookingsteps) {
+          document.getElementById(
+            "recipepage-load-ingredients-stepone"
+          ).innerHTML += `
         <tr>
-          <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+          <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
         </tr>`;
-      } else {
-        document.getElementById(
-          "recipepage-load-ingredients-sauce"
-        ).innerHTML += `
+        } else {
+          document.getElementById(
+            "recipepage-load-ingredients-steptwo"
+          ).innerHTML += `
       <tr>
-        <td>${recipeAmountDecimal} ${recipeIngredients[count]}</td>
+        <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
       </tr>`;
+        }
       }
+
+      let element = document.getElementById("recipepage-amount");
+      element.style.backgroundColor = "var(--white)";
+      element.style.borderColor = "var(--green)";
+    } else {
+      let element = document.getElementById("recipepage-amount");
+      element.style.backgroundColor = "var(--red)";
+      element.style.borderColor = "var(--red)";
+      alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
     }
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--white)";
-    element.style.borderColor = "var(--green)";
-  } else {
-    let element = document.getElementById("recipepage-amount");
-    element.style.backgroundColor = "var(--red)";
-    element.style.borderColor = "var(--red)";
-    alert("Bitte eine Zahl zwischen 1 und 12 eingeben.");
   }
 }
+
+function checkNumberOfIngredients() {}
 
 /*  ------------------ Umrechnung auf den Bruch  ------------------ */
-
-function divideDecimal(decimal) {
-  // Ermitteln der ganzen Zahlkomponente
-  const wholeNumber = Math.floor(decimal);
-
-  // Ermitteln der Nachkommastellenkomponente
-  const fractionalPart = decimal - wholeNumber;
-
-  let fraction = "";
-
-  // Überprüfen, ob die Dezimalzahl Nachkommastellen hat
-  if (decimal % 1 !== 0) {
-    // Bestimmen der Fraktionskomponente basierend auf fractionalPart
-    const fractionValue = Math.round(fractionalPart * 4);
-    if (fractionValue === 1) {
-      fraction = "&#xbc;"; // "&#xbc;" entspricht dem Bruch "¼"
-    } else if (fractionValue === 2) {
-      fraction = "&#xBD;"; // "&#xBD;" entspricht dem Bruch "½"
-    } else if (fractionValue === 3) {
-      fraction = "&#xbe;"; // "&#xbe;" entspricht dem Bruch "¾"
-    }
-  }
-
-  // Überprüfen, ob es keine ganze Zahl gibt
-  if (wholeNumber === 0) {
-    return fraction;
-  }
-  // Überprüfen, ob es sowohl eine ganze Zahl als auch eine Fraktion gibt
-  else if (fraction) {
-    return `${wholeNumber} ${fraction}`;
-  }
-  // Wenn weder ganze Zahl noch Fraktion vorhanden sind
-  else {
-    return wholeNumber.toString();
-  }
-}
 
 /*  ------------------ INCLUDE HTML ------------------ */
 
