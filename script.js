@@ -161,10 +161,11 @@ function calculateRecipe(
 (z.b eines für die Spaghettis und die Soße) */
 
 function oneCookingStep(recipeAmountNew, recipeIngredients, count) {
-  document.getElementById("recipepage-load-ingredients").innerHTML += `
-  <tr>
-    <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
-  </tr>`;
+  document.getElementById("recipepage-load-ingredients").innerHTML += /*html*/ `
+    <tr>
+      <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+    </tr>
+  `;
 }
 
 function twoCookingSteps(
@@ -176,17 +177,19 @@ function twoCookingSteps(
   if (count < cookingsteps) {
     document.getElementById(
       "recipepage-load-ingredients-stepone"
-    ).innerHTML += `
-<tr>
-  <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
-</tr>`;
+    ).innerHTML += /*html*/ `
+        <tr>
+          <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+        </tr>
+      `;
   } else {
     document.getElementById(
       "recipepage-load-ingredients-steptwo"
-    ).innerHTML += `
-<tr>
-<td>${recipeAmountNew} ${recipeIngredients[count]}</td>
-</tr>`;
+    ).innerHTML += /*html*/ `
+        <tr>
+          <td>${recipeAmountNew} ${recipeIngredients[count]}</td>
+        </tr>
+      `;
   }
 }
 
