@@ -388,6 +388,7 @@ footer a:hover {
   width: 30px;
   height: 30px;
   display: none;
+  cursor: pointer;
 }
 
 .burgericon div {
@@ -408,6 +409,15 @@ footer a:hover {
     margin-bottom: 24px;
   }
 
+  .contact-formular-name {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contact-formular-name input {
+    width: 230px !important;
+  }
+
   .contact-formular-email input {
     width: 230px !important;
   }
@@ -423,6 +433,17 @@ footer a:hover {
   }
   header {
     padding: 0 20px;
+  }
+  .kontaktformular {
+    text-align: center;
+  }
+
+  .contact-formular-name input {
+    width: 350px;
+  }
+
+  .contact-formular-name {
+    justify-content: center;
   }
 
   .landingpage,
@@ -444,6 +465,9 @@ footer a:hover {
   }
   .section-content {
     margin: 60px 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
   footer {
     height: 180px;
@@ -464,7 +488,6 @@ footer a:hover {
   }
 }
 @media (max-width: 620px) {
-  .contact-formular-name,
   .recipepage-attributes {
     flex-direction: column;
   }

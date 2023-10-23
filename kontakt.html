@@ -16,42 +16,44 @@
     <div w3-include-html="header.html"></div>
 
     <section class="section-content">
-      <h1>Kontakt</h1>
-      <div class="contact-formular">
-        <form onsubmit="sendMail(event)">
-          <label>
-            <p>Name:</p>
-            <div class="contact-formular-name">
-              <div class="contact-formular-name-detail">
-                <input
-                  type="name"
-                  name="firstname"
-                  placeholder="Vorname"
-                  required
-                />
+      <div class="kontaktformular">
+        <h1>Kontakt</h1>
+        <div class="contact-formular">
+          <form onsubmit="sendMail(event)">
+            <label>
+              <p>Name:</p>
+              <div class="contact-formular-name">
+                <div class="contact-formular-name-detail">
+                  <input
+                    type="name"
+                    name="firstname"
+                    placeholder="Vorname"
+                    required
+                  />
+                </div>
+                <div class="contact-formular-name-detail">
+                  <input
+                    type="name"
+                    name="secondname"
+                    placeholder="Nachname"
+                    required
+                  />
+                </div>
               </div>
-              <div class="contact-formular-name-detail">
-                <input
-                  type="name"
-                  name="secondname"
-                  placeholder="Nachname"
-                  required
-                />
+              <div class="contact-formular-email">
+                <p>E-Mail:</p>
+                <input type="email" name="email" required />
               </div>
-            </div>
-            <div class="contact-formular-email">
-              <p>E-Mail:</p>
-              <input type="email" name="email" required />
-            </div>
-            <div class="contact-formular-message">
-              <p>Deine Nachricht an uns:</p>
-              <textarea name="message" required></textarea>
-            </div>
-            <div class="contact-formular-button">
-              <button class="contact-button" type="submit">Absenden</button>
-            </div>
-          </label>
-        </form>
+              <div class="contact-formular-message">
+                <p>Deine Nachricht an uns:</p>
+                <textarea name="message" required></textarea>
+              </div>
+              <div class="contact-formular-button">
+                <button class="contact-button" type="submit">Absenden</button>
+              </div>
+            </label>
+          </form>
+        </div>
       </div>
     </section>
 
